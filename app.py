@@ -6,7 +6,7 @@ from database import db
 from models import User, Room, Message, Note, StudySession, Achievement
 import os
 
-socketio = SocketIO(async_mode='threading', cors_allowed_origins="*")
+socketio = SocketIO(async_mode='gevent', cors_allowed_origins="*")
 
 def create_app():
     app = Flask(__name__)
