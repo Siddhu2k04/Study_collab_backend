@@ -6,7 +6,7 @@ from database import db
 from models import User, Room, Message, Note, StudySession, Achievement
 import os
 
-socketio = SocketIO(app, async_mode='threading')
+socketio = SocketIO(async_mode='threading')
 
 def create_app():
     app = Flask(__name__)
@@ -14,6 +14,8 @@ def create_app():
     
     CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Authorization", "Content-Type"]}}, supports_credentials=True)
     db.init_app(app)
+
+   
     socketio.init_app(app)
     
     with app.app_context():
